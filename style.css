@@ -1,0 +1,21 @@
+*{
+    margin:  0;
+    padding: 0;
+    list-style:  none;
+
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container{
+    margin:  0px auto;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
