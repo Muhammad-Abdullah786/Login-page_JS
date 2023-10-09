@@ -25,7 +25,7 @@ function handleSubmit(e){
         zip : zipCodeNode.value,
         country : countryNode.value,
     }
-    if (formData.fathName === "" || formData.fulhName === "" || formData.fname === "") {
+    if (formData.fatherName === "" || formData.firstName === "" || formData.lastName === "") {
         alert("Please enter all required fields")
     }
     console.log("subbmissions", formData);
