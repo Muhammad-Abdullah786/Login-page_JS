@@ -16,23 +16,7 @@
   <body>
     <div class="container">
       <!-- Content here -->
-
-      <!-- <form>
-            <input type="text" id="fatherName" placeholder="Your Father name?"  ><br>
-            <input type="text" id="fullName" placeholder="Your name?"  >  <br>
-            <input type="text" id="nickName" placeholder="Your Nickname?"  ><br>
-            <select id="country" onblur="" onchange="">
-                <option value="pakistan">pakistan</option>
-                <option value="india">india</option>
-                <option value="poland">poland</option>
-                <option value="palestine">palestine</option>
-            </select>
-            <input type="text" placeholder="ZIP" id="zip">
-            <input type="submit" value="submit">
-            
-        </form> -->
-
-      <form class="row g-3">
+      <form class="row g-3" onsubmit="handleSubmit(event)">
         <div class="row">
           <div class="col">
             <input
@@ -94,7 +78,7 @@
         </div> -->
         <div class="col-md-4">
           <label for="inputCountry" class="form-label">Country</label>
-          <select id="inputCountry" class="form-select" onblur="" onchange="">
+          <select id="inputCountry" class="form-select" onblur="" onchange="handleChangeCountry()" >
             <option selected>Choose...</option>
             <option value="pakistan">pakistan</option>/////
             <option value="india">india</option>/////
