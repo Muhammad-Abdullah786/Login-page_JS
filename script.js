@@ -11,7 +11,19 @@ var inputAddress2Node = document.getElementById("inputAddress2");
 var inputZipNode = document.getElementById("inputZip");
 var inputCountryNode = document.getElementById("inputCountry");
 
-
+// display error message 
+function displayErrorMessage(whichNode , error){
+    let span = document.createElement("span")
+    span.innerHTML = error
+    span.style.color = "red"
+    // small font size
+    span.style.fontSize = "13px"
+    whichNode.parentNode.appendChild(span)
+    // now to remove span
+    setTimeout(function(){
+        span.remove()
+    }, 3000)
+}
 function handleSubmit(e){
     e.preventDefault();
     var formData ={
@@ -25,103 +37,40 @@ function handleSubmit(e){
         zip : inputZipNode.value,
         country : inputCountryNode.value,
     }
-    // if all field are empty
-
-    // if (formData.fatherName 
+        
     if (formData.fatherName === "") {
-        // alert("Please enter all required fields")
-        let span = document.createElement("span")
-        span.innerHTML = "apne baap ka naam daaal!!"
-        span.style.color = "red"
-        // small font size
-        span.style.fontSize = "13px"
-        fatherNameNode.parentNode.appendChild(span)
-        // now to remove span
-        setTimeout(function(){
-            span.remove()
-        }, 3000)
+        displayErrorMessage(fatherNameNode , "Please enter your father name")
     }
-    else if (formData.firstName === "") {
-        // alert("Please enter all required fields")
-        let span = document.createElement("span")
-        span.innerHTML = "Please enter your first name"
-        span.style.color = "red"
-        // small font size
-        span.style.fontSize = "13px"
-        firstNameNode.parentNode.appendChild(span)
-        // now to remove span
-        setTimeout(function(){
-            span.remove()
-        }, 3000)
+    if (formData.firstName === "") {
+        displayErrorMessage(firstNameNode , "Please enter your first name")
     }
-    else if (formData.lastName === "") {
-        // alert("Please enter all required fields")
-        let span = document.createElement("span")
-        span.innerHTML = "Please enter your last name"
-        span.style.color = "red"
-        // small font size
-        span.style.fontSize = "13px"
-        lastNameNode.parentNode.appendChild(span)
-        // now to remove span
-        setTimeout(function(){
-            span.remove()
-        }, 3000)
+    if (formData.lastName === "") {
+       displayErrorMessage(lastNameNode , "Please enter your last name")
     }
-    else if (formData.email === "" ){
-        let span = document.createElement("span")
-        span.innerHTML = "Please enter Yor Email Address"
-        span.style.color = "red"
-        span.style.fontSize = "13px"
-        inputEmail4Node.parentNode.appendChild(span)
-        setTimeout(function(){
-            span.remove()
-
-        }, 3000)
+    if (formData.email === "" ){
+       displayErrorMessage(inputEmail4Node , "Please enter your email")
     }
-    else if (formData.password === "" ){
-        let span = document.createElement("span")
-        span.innerHTML = "Please enter Yor Password"
-        span.style.color = "red"
-        span.style.fontSize = "13px"
-        inputPassword4Node.parentNode.appendChild(span)
-        setTimeout(function(){
-            span.remove()
-            
-        }, 3000)
-    
+    if (formData.password === "" ){
+        displayErrorMessage(inputPassword4Node , "Please enter your password")
     }
-    else if (formData.address1 === "" ){
-        let span = document.createElement("span")
-        span.innerHTML = "We need to know your hometowm or block NO"
-        span.style.color = "red"
-        span.style.fontSize = "13px"
-        inputAddressNode.parentNode.appendChild(span)
-        setTimeout(function(){
-            span.remove()
-            
-        }, 3000)
+    if (formData.address1 === "" ){
+       displayErrorMessage(inputAddressNode , "Please enter your address like Block Number" )
     }
-    else if (formData.address2 === "" ){
-        let span = document.createElement("span")
-        span.innerHTML = "Please enter Yor Address like floor or apartment"
-        span.style.color = "red"
-        span.style.fontSize = "13px"
-        inputAddress2Node.parentNode.appendChild(span)
-        setTimeout()
+    if (formData.address2 === "" ){
+        displayErrorMessage(inputAddress2Node , "Please enter your address like apartment Number" )
     }
-    else if (formData.zip === "" ){
-        let span = document.createElement("span")
-        span.innerHTML = "zip code are necessry"
-        span.style.color = "red"
-        span.style.fontSize = "13px"
-        inputZipNode.parentNode.appendChild(span)
-        setTimeout(function(){
-            span.remove()
-            
-        }, 3000)
-
+    if (formData.zip === "" ){
+        displayErrorMessage(inputZipNode , "Please enter your zip address it's needed" )
     }
-    console.log("subbmissions", formData );
+    if (formData.country === "Choose..." ){
+        displayErrorMessage(inputCountryNode , "Please chose your country name")
+    }
+    // if all are empty
+    if (formData.address1 === "" && formData.address2 === "" && formData.country === "" &&formData.email === "" &&formData.fatherName === "" &&formData.firstName === "" &&formData.lastName === "" &&formData.password === "" &&formData.zip === "") {
+        alert("please enter all required field")
+        return;
+    }
+    console.log("form Data ---->", formData );
 }
 
 ///          THIS FUNCTION PUT ZIP CODE WHEN YOU CHOSE A COUNTRY
