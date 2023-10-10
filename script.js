@@ -37,7 +37,11 @@ function handleSubmit(e){
         zip : inputZipNode.value,
         country : inputCountryNode.value,
     }
-        
+   // if all are empty
+if (formData.address1 === "" && formData.address2 === "" && formData.country === "" &&formData.email === "" &&formData.fatherName === "" &&formData.firstName === "" &&formData.lastName === "" &&formData.password === "" &&formData.zip === "") {
+    alert("please enter all required field")
+    return;
+}  
     if (formData.fatherName === "") {
         displayErrorMessage(fatherNameNode , "Please enter your father name")
     }
@@ -65,11 +69,7 @@ function handleSubmit(e){
     if (formData.country === "Choose..." ){
         displayErrorMessage(inputCountryNode , "Please chose your country name")
     }
-    // if all are empty
-    if (formData.address1 === "" && formData.address2 === "" && formData.country === "" &&formData.email === "" &&formData.fatherName === "" &&formData.firstName === "" &&formData.lastName === "" &&formData.password === "" &&formData.zip === "") {
-        alert("please enter all required field")
-        return;
-    }
+ 
     console.log("form Data ---->", formData );
 }
 
@@ -103,3 +103,13 @@ function handleChangeCountry() {
     }
 }
 
+// function to generate the randoom pasword for  my pasword input div
+
+function generatePassword() {
+    var password = "";
+    var passwordLength = inputPassword4Node.value.length;
+    for (var i = 0; i < passwordLength; i++) {
+        password += Math.floor(Math.random() * 10);
+    }
+    inputPassword4Node.value = password;
+}
